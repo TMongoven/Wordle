@@ -13,14 +13,6 @@ class Wordle {
 	protected: int guessnum = 0;
 	protected: string* allowed = new string[12972];
 
-	// public: Wordle(){
-	// 	word = "crane";
-	// };
-
-	// public: Wordle(string input){
-	// 	word = input;
-	// }
-
 	public: int init(){
 		fstream file;
 		string word, filename;
@@ -38,7 +30,6 @@ class Wordle {
 		i = 0;
 		while(file >> word){
 			possiblewords[i] = word;
-			// cout << word << endl;
 			i++;
 		}
 		default_random_engine e;
@@ -53,22 +44,12 @@ class Wordle {
 		bool invalidguess = true;
 		string input;
 		while(invalidguess){
-			// invalidguess = false;
 			cout << "Place guess: ";
 			cin >> input;
-			// if(input.length() != word.length()){
-			// 	cout <<"Invalid guess" << endl;
-			// 	invalidguess = true;
-			// }	
-			// for(int i = 0; i < input.length(); i++){
-			// 	if(!isalpha(input[i])){
-			// 		cout << "Invalid guess" << endl;
-			// 		invalidguess = true;
-			// 	}
-			// }
 			for(int i = 0; i < 12972; i++){
 				if(input == allowed[i]){
 					invalidguess = false;
+					break;
 				}
 			}
 			if(invalidguess){
