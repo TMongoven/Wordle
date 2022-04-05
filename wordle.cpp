@@ -37,7 +37,9 @@ class Wordle {
 		e.seed(seed);
 		int index = e() % 2315;
 		answer = possiblewords[index];
-		cout << "DEBUGGING = THE WORD IS " << answer << endl;
+		// cout << "DEBUGGING = THE WORD IS " << answer << endl;
+		cout << "KEY = Letter in correct location: '!' \n      Letter in incorrect location: '?' \n      Letter not in word: '0'" << endl;
+		cout << "You have 6 guesses to determine the word." << endl;
 	}
 
 	protected: int get_valid_guess(){
@@ -108,7 +110,7 @@ class Wordle {
 				return 0;
 			}
 		}
-		cout << "Ran out of guesses. Game Over." << endl;
+		cout << "Ran out of guesses. Game Over. The correct word was " << answer << "." << endl;
 		return 0;
 	};
 };
